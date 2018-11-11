@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'CopyIt_Example' do
+  pod 'CopyIt', :path => '../'
+
+  target 'CopyIt_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
