@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,8 +20,49 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwF-Yy-Hih">
+                                <rect key="frame" x="127.5" y="303.5" width="120" height="60"/>
+                                <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="F8b-9N-pN2"/>
+                                    <constraint firstAttribute="width" constant="120" id="cEE-Fw-Z1j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7c-Dq-QRd" customClass="MyView" customModule="CopyIt_Example" customModuleProvider="target">
+                                <rect key="frame" x="67" y="127" width="240" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello world!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1S-Nd-8M3">
+                                        <rect key="frame" x="141.5" y="54" width="90.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="DIr-CL-Bx0"/>
+                                    <constraint firstItem="i1S-Nd-8M3" firstAttribute="centerY" secondItem="O7c-Dq-QRd" secondAttribute="centerY" id="Ddz-wc-GAQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="i1S-Nd-8M3" secondAttribute="trailing" constant="8" id="KJ8-O6-aow"/>
+                                    <constraint firstAttribute="height" constant="128" id="MJi-md-tG0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="O7c-Dq-QRd" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="BE6-ve-9ed"/>
+                            <constraint firstItem="hwF-Yy-Hih" firstAttribute="top" secondItem="O7c-Dq-QRd" secondAttribute="bottom" constant="48.5" id="PGJ-Dc-nnf"/>
+                            <constraint firstItem="hwF-Yy-Hih" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="UKO-hk-k3v"/>
+                            <constraint firstItem="hwF-Yy-Hih" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="dbN-pd-TcY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="hwF-Yy-Hih" id="45M-Yc-Hbt"/>
+                        <outlet property="someView" destination="O7c-Dq-QRd" id="2Cv-wF-Q6A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

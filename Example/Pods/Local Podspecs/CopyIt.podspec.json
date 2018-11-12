@@ -1,0 +1,22 @@
+{
+  "name": "CopyIt",
+  "version": "0.1.0",
+  "summary": "A short description of CopyIt.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/isapozhnik/CopyIt",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "isapozhnik": "sapozhnik.ivan@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/isapozhnik/CopyIt.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "CopyIt/Classes/**/*"
+}

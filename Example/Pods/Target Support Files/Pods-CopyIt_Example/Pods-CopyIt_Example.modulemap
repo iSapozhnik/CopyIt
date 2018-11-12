@@ -1,0 +1,6 @@
+framework module Pods_CopyIt_Example {
+  umbrella header "Pods-CopyIt_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

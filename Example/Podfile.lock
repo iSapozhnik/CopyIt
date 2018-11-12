@@ -1,0 +1,16 @@
+PODS:
+  - CopyIt (0.1.0)
+
+DEPENDENCIES:
+  - CopyIt (from `../`)
+
+EXTERNAL SOURCES:
+  CopyIt:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CopyIt: 9705c1d2d5bf6a08b5c1f88ab11504a9767fe172
+
+PODFILE CHECKSUM: b6d6d03bfcefa8c1190d3cdeb53a5107a5b08d6d
+
+COCOAPODS: 1.5.3

@@ -1,0 +1,6 @@
+framework module CopyIt {
+  umbrella header "CopyIt-umbrella.h"
+
+  export *
+  module * { export * }
+}

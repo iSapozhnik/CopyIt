@@ -7,18 +7,25 @@
 //
 
 import UIKit
+import CopyIt
+
+class MyView: UIView, Copiable {}
+extension UILabel: Copiable {}
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var someView: MyView!
+    @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        someView.enableCopying { (view) -> String in
+            return "Hello world!"
+        }
+        
+        label.enableCopying { (label) -> String in
+            return label?.text ?? ""
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 
