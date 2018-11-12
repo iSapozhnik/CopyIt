@@ -1,3 +1,5 @@
+![](https://github.com/iSapozhnik/CopyIt/raw/master/Assets/CopyIt.png)
+
 # CopyIt
 
 [![CI Status](https://img.shields.io/travis/isapozhnik/CopyIt.svg?style=flat)](https://travis-ci.org/isapozhnik/CopyIt)
