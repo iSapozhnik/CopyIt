@@ -21,6 +21,7 @@ private class GestureRecognizer {
     }
     
     @objc func handlePress(_ gesture: UIGestureRecognizer) {
+        guard gesture.state != .began else { return }
         handler?(gesture)
     }
 }
@@ -32,6 +33,10 @@ private class ActionHolderView: UIView {
         self.action = action
         super.init(frame: .zero)
     }
+
+    deinit {
+
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -40,7 +45,6 @@ private class ActionHolderView: UIView {
     @objc func copyAction(_ controller: UIMenuController) {
         action()
         resignFirstResponder()
-        removeFromSuperview()
     }
     
     override open var canBecomeFirstResponder: Bool {
@@ -54,11 +58,15 @@ private class ActionHolderView: UIView {
 }
 
 private class CopyTextMenuItem: UIMenuItem {
-    let actionHolderView: ActionHolderView
+    var actionHolderView: ActionHolderView
     
     init(title: String, block: @escaping () -> Void) {
         self.actionHolderView = ActionHolderView(action: block)
         super.init(title: title, action: #selector(ActionHolderView.copyAction(_:)))
+    }
+
+    deinit {
+        actionHolderView.removeFromSuperview()
     }
 }
 
@@ -84,6 +92,7 @@ public extension Copiable where Self: UIView {
         
         gesture = GestureRecognizer()
         gesture?.observe(with: { [weak self] gesture in
+            print("Observer executed")
             guard let gestureView = gesture.view, let superView = gestureView.superview else {
                 return
             }
@@ -92,6 +101,7 @@ public extension Copiable where Self: UIView {
             
             let copyItem = CopyTextMenuItem(title: "COPY ME", block: {
                 UIPasteboard.general.string = content(self)
+                menuController.menuItems = nil
             })
             self?.addSubview(copyItem.actionHolderView)
             
