@@ -20,8 +20,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        someView.enableCopying { view -> UIView? in
-            return view
+        someView.enableCopying { view -> String? in
+            return "Hello world!"
         }
         
         label.enableCopying { label -> String? in

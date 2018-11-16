@@ -165,6 +165,7 @@ public extension Copiable where Self: UIView {
 
             let copyText = {
                 guard let content = content, let contentValue = content(self) as? String else { return }
+                print(content)
                 UIPasteboard.general.string = contentValue
                 release()
             }
