@@ -12,8 +12,8 @@ public protocol Copiable {}
 private class GestureRecognizer {
     private var handler: ((UIGestureRecognizer) -> Void)?
     var recognizer: UIGestureRecognizer?
-    
-    public func onLongPress(_ handler: ((UIGestureRecognizer) -> Void)?) {
+
+    init(onLongPress handler: ((UIGestureRecognizer) -> Void)?) {
         recognizer = UILongPressGestureRecognizer(
             target: self,
             action: #selector(handlePress(_:)))
@@ -128,6 +128,7 @@ public extension Copiable where Self: UIView {
             return value
         }
         set(newValue) {
+            print("setting gesture \(newValue) for view \(self)")
             objc_setAssociatedObject(self, &AssociatedKeys.gesture, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
@@ -143,8 +144,9 @@ public extension Copiable where Self: UIView {
     public mutating func enableCopying<T>(options: [CopiableOptions], localization: CopiableLocalization, _ content: ((Self?) -> T)?) {
         isUserInteractionEnabled = true
         
-        gesture = GestureRecognizer()
-        gesture?.onLongPress { [weak self] gesture in
+        gesture = GestureRecognizer(onLongPress: { [weak self] gesture in
+//            print("gesture = \(gesture)")
+//            return
             guard let gestureView = gesture.view, let superView = gestureView.superview else { return }
 
             var filteredOptions: [CopiableOptions] = options
@@ -156,7 +158,7 @@ public extension Copiable where Self: UIView {
             }
 
             guard filteredOptions.count > 0 else { return }
-            
+
             let menuController = UIMenuController.shared
 
             let release = {
@@ -200,16 +202,18 @@ public extension Copiable where Self: UIView {
             guard !menuController.isMenuVisible, actionHolderView.canBecomeFirstResponder else { return }
             actionHolderView.becomeFirstResponder()
             menuController.menuItems = items
-            
+
             menuController.setTargetRect(gestureView.frame, in: superView)
-//            menuController.arrowDirection = self?.arrowDirection(for: gestureView) ?? .down
+            //            menuController.arrowDirection = self?.arrowDirection(for: gestureView) ?? .down
             menuController.setMenuVisible(true, animated: true)
-        }
+        })
+        print("creating gesture rc = \(gesture?.recognizer) for view \(self)")
         
         guard let recognizer = gesture?.recognizer else { return }
 
         if (self.gestureRecognizers == nil) || (!gestureRecognizers!.contains(recognizer)) {
             self.addGestureRecognizer(recognizer)
+            print("adding gc \(recognizer) to view \(self)")
         }
     }
 

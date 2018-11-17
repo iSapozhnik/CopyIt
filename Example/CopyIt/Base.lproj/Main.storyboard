@@ -50,7 +50,7 @@
                                     <constraint firstAttribute="height" constant="128" id="MJi-md-tG0"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CopyIt" translatesAutoresizingMaskIntoConstraints="NO" id="rJZ-CG-iGO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CopyIt" translatesAutoresizingMaskIntoConstraints="NO" id="rJZ-CG-iGO">
                                 <rect key="frame" x="-257.5" y="422" width="890" height="245"/>
                             </imageView>
                         </subviews>

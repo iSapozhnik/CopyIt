@@ -32,9 +32,9 @@ class ViewController: UIViewController {
             return imageView?.image
         }
 
-        view.enableCopying { [weak self] _ in
-            return self?.view
-        }
+//        view.enableCopying { [weak self] _ in
+//            return self?.view
+//        }
     }
 }
 
